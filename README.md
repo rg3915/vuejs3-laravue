@@ -410,9 +410,80 @@ ou com `index`
 </script>
 ```
 
+# Vue CLI
+
+cli.vuejs.org
+
+```
+npm install -g @vue/cli
+```
+
+## Criando um projeto
+
+```
+vue create my-project
+```
+
+### Trabalhando com Single File Component
+
+```
+mkdir sfc
+cd sfc
+touch App.vue
+```
+
+```js
+// App.vue
+<template>
+  <div>
+    <h1>Hello World!</h1>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {}
+    }
+  }
+</script>
+
+<style>
+  .title {}
+</style>
+```
+
+### Prototipagem
+
+https://v4.cli.vuejs.org/guide/prototyping.html
+
+[Instant Prototyping v5](https://cli.vuejs.org/guide/prototyping.html)
+
+```
+npm install -g @vue/cli @vue/cli-service-global
+
+cd sfc
+vue serve
+```
+
+TODO
+
+## Criando projeto
+
+```
+vue create my-app
+```
+
+
+
+
+
+
+
+
 # Vue Route
 
-Instalando
+## Instalando
 
 ```
 npm add vue-router@4
@@ -438,3 +509,8 @@ createApp(App)
   .mount('#app')
 ```
 
+## Criando primeiras rotas
+
+```js
+
+```
