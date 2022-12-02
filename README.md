@@ -472,7 +472,10 @@ TODO
 
 ```
 vue create my-app
+cd my-app
+npm run serve
 ```
+
 
 
 
