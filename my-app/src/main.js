@@ -1,13 +1,15 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from './views/Home'
-import Company from './views/Company'
-import CompanyHistory from './views/CompanyHistory'
-import CompanyAwards from './views/CompanyAwards'
-import Contact from './views/Contact'
-import Team from './views/Team'
-import Error404 from './views/404'
+// import Home from './views/Home'
+const Home = () => import(/* webpackChunName: "home" */ './views/Home')
+// import Company from './views/Company'
+// const Company = () => import(/* webpackChunName: "company" */ './views/Company') ou
+const CompanyHistory = () => import(/* webpackChunName: "company-history" */ './views/CompanyHistory')
+const CompanyAwards = () => import(/* webpackChunName: "company-awards" */ './views/CompanyAwards')
+const Contact = () => import(/* webpackChunName: "contact" */ './views/Contact')
+const Team = () => import(/* webpackChunName: "team" */ './views/Team')
+const Error404 = () => import(/* webpackChunName: "error404" */ './views/404')
 
 const routes = [
   { path: '/', name: 'home', component: Home },
@@ -20,7 +22,7 @@ const routes = [
     path: '/empresa',
     name: 'company',
     // alias: '/a-empresa',
-    component: Company,
+    component: () => import(/* webpackChunName: "company" */ './views/Company'), // <<<
     meta: {
       sidebar: true,
       auth: false,
@@ -67,6 +69,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehaviour(to, from, savePosition) {
+    console.log(to, from, savePosition)
     return { top: 0 }
   }
 })

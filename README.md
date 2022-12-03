@@ -1123,3 +1123,22 @@ const router = createRouter({
 
 ## Rotas carregamento lento
 
+```js
+//main.js
+// import Home from './views/Home'
+const Home = () => import(/* webpackChunName: "home" */ './views/Home')
+// import Company from './views/Company'
+// const Company = () => import(/* webpackChunName: "company" */ './views/Company') ou
+const CompanyHistory = () => import(/* webpackChunName: "company-history" */ './views/CompanyHistory')
+const CompanyAwards = () => import(/* webpackChunName: "company-awards" */ './views/CompanyAwards')
+const Contact = () => import(/* webpackChunName: "contact" */ './views/Contact')
+const Team = () => import(/* webpackChunName: "team" */ './views/Team')
+const Error404 = () => import(/* webpackChunName: "error404" */ './views/404')
+
+{
+    path: '/empresa',
+    name: 'company',
+    // alias: '/a-empresa',
+    component: () => import(/* webpackChunName: "company" */ './views/Company'), // <<<
+```
+
