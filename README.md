@@ -749,5 +749,11 @@ Então, entre numa página não existente.
 
 `this.$router` é a instância do vue-router.
 
-
+```js
+// Home.vue
+created() {
+  console.log(this.$route)
+  console.log(this.$router)
+}
+```
 
