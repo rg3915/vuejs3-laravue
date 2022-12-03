@@ -508,6 +508,16 @@ createApp(App)
 
 ## Criando primeiras rotas
 
-```js
+Crie uma pasta `src/views`
 
 ```
+cd my-app
+mkdir -p src/views
+```
+
+E dentro de `src/views` crie os arquivos
+
+```
+touch src/views/{Home,Company,Contact}.vue
+```
+
