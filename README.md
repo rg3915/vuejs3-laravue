@@ -742,3 +742,12 @@ import Error404 from './views/404'
 
 Então, entre numa página não existente.
 
+
+## Objeto Route vs Router
+
+`this.$route` traz informações da rota.
+
+`this.$router` é a instância do vue-router.
+
+
+
