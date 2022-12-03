@@ -747,12 +747,29 @@ Então, entre numa página não existente.
 
 `this.$route` traz informações da rota.
 
-`this.$router` é a instância do vue-router.
+`this.$router` é a instância do vue-router. Tem a ver com ações.
 
 ```js
 // Home.vue
 created() {
   console.log(this.$route)
+  console.log(this.$router)
+}
+```
+
+## Navegação programática
+
+O `push` a seguir vai servir de redirecionamento.
+
+```js
+// Home.vue
+created() {
+  // this.$router.push('/a-empresa') ou
+  // this.$router.push({ path: '/a-empresa' }) ou
+  // this.$router.push({ name: 'company' }) ou
+  // this.$router.push({ name: 'company', query: { curso: 'laravue' } }) ou com query
+  // this.$router.push({ name: 'company', hash: '#laravue' }) ou com hash
+  // this.$router.push({ name: 'team', params: { member: 'regis' } }) ou com params
   console.log(this.$router)
 }
 ```
