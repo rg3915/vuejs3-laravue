@@ -595,3 +595,16 @@ const routes = [
   <router-link :to="{ name: 'contact' }">Contato</router-link>
 </div>
 ```
+
+## Adicionando Alias
+
+```js
+// main.js
+{
+  path: '/empresa',
+  name: 'company',
+  alias: '/a-empresa',
+  component: Company
+}
+```
+
