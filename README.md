@@ -705,3 +705,19 @@ Basta adicionar o sinal de `?`
 }
 ```
 
+## Parâmetros repetíveis
+
+Basta adicionar o sinal de `+`
+
+```js
+// main.js
+{
+  path: '/equipe/:member+',
+}
+```
+
+com isso você poderá digitar no rota, por exemplo:
+
+```
+http://localhost:8080/equipe/2022/12/3
+```
