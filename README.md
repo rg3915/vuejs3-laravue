@@ -687,4 +687,21 @@ Regex somente com palavras (aceita números)
 }
 ```
 
-## 
+## Parâmetros opcionais
+
+Basta adicionar o sinal de `?`
+
+```js
+// main.js
+{
+  path: '/equipe/:member?',
+}
+```
+
+```js
+// main.js
+{
+  path: '/equipe/:member(\\w+)?',
+}
+```
+
