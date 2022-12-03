@@ -1166,3 +1166,23 @@ methods: {
 
 ## Organizando arquivo de rotas
 
+Crie uma pasta `router` e um arquivo `index.js`
+
+```
+mkdir src/router
+touch src/router/index.js
+```
+
+E limpe o `main.js`
+
+```js
+// main.js
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+
+createApp(App)
+  .use(router)
+  .mount('#app')
+```
+
