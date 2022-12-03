@@ -49,8 +49,8 @@ const routes = [
     name: 'contact',
     component: Contact,
     beforeEnter: (to, from, next) => {
-      console.log('to', to)
-      console.log('from', from)
+      // console.log('to', to)
+      // console.log('from', from)
       next()
     }
   },
@@ -63,6 +63,19 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+})
+
+router.beforeEach((to, from, next) => {
+  console.log('beforeEach')
+  console.log('to', to)
+  console.log('from', from)
+  next()
+})
+
+router.afterEach((to, from) => {
+  console.log('afterEach')
+  console.log('to', to)
+  console.log('from', from)
 })
 
 createApp(App)

@@ -1044,3 +1044,18 @@ export default {
 
 ## Guards globais
 
+```js
+// main.js
+router.beforeEach((to, from, next) => {
+  console.log('to', to)
+  console.log('from', from)
+  next()
+})
+
+router.afterEach((to, from) => {
+  console.log('afterEach')
+  console.log('to', to)
+  console.log('from', from)
+})
+```
+
