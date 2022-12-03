@@ -721,3 +721,24 @@ com isso você poderá digitar no rota, por exemplo:
 ```
 http://localhost:8080/equipe/2022/12/3
 ```
+
+## Adicionando rota padrão
+
+Crie um componente chamado `Error404`
+
+```
+touch src/views/404.vue
+```
+
+```js
+// main.js
+import Error404 from './views/404'
+
+{
+  path: '/:pathMatch(.*)',
+  component: Error404
+}
+```
+
+Então, entre numa página não existente.
+

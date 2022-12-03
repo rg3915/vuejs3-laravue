@@ -5,6 +5,7 @@ import Home from './views/Home'
 import Company from './views/Company'
 import Contact from './views/Contact'
 import Team from './views/Team'
+import Error404 from './views/404'
 
 const routes = [
   { path: '/', name: 'home', component: Home },
@@ -24,7 +25,15 @@ const routes = [
     name: 'team',
     component: Team
   },
-  { path: '/contato', name: 'contact', component: Contact },
+  {
+    path: '/contato',
+    name: 'contact',
+    component: Contact
+  },
+  {
+    path: '/:pathMatch(.*)',
+    component: Error404
+  }
 ]
 
 const router = createRouter({
