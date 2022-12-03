@@ -466,7 +466,14 @@ cd sfc
 vue serve
 ```
 
-TODO
+Este comando não está compatível com a versão 18, então use
+
+```
+nvm use 16.17.0
+npm install -g @vue/cli @vue/cli-service-global
+
+vue serve
+```
 
 ## Criando projeto
 
@@ -1098,4 +1105,18 @@ router.beforeEach((to, from, next) => {
 })
 ```
 
-## 
+## Comportamento da barra de rolagem
+
+```js
+//main.js
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+  scrollBehaviour(to, from, savePosition) {
+    return { top: 0 }
+  }
+})
+```
+
+## Rotas carregamento lento
+
