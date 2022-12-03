@@ -625,3 +625,27 @@ const routes = [
 }
 ```
 
+## Rotas com parâmetros
+
+Crie um componente chamado `Team`
+
+```
+touch src/views/Team.vue
+```
+
+```js
+// main.js
+import Team from './views/Team'
+
+{
+  path: '/equipe/:member',
+  name: 'team',
+  component: Team
+},
+```
+
+```js
+// App.vue
+<router-link :to="{ name: 'team', params: { member: 'regis' }}">Equipe</router-link>
+```
+

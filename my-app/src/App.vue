@@ -5,6 +5,8 @@
      |
     <router-link :to="{ name: 'company' }">Empresa</router-link>
      |
+    <router-link :to="{ name: 'team', params: { member: 'regis' }}">Equipe</router-link>
+     |
     <router-link :to="{ name: 'contact' }">Contato</router-link>
   </div>
 
