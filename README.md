@@ -894,3 +894,50 @@ Ou dinamicamente podemos fazer:
 }
 ```
 
+## Criando subrotas
+
+`children`
+
+```js
+// main.js
+import Company from './views/Company'
+import CompanyHistory from './views/CompanyHistory'
+import CompanyAwards from './views/CompanyAwards'
+
+{
+  path: '/empresa',
+  name: 'company',
+  // alias: '/a-empresa',
+  component: Company,
+  children: [
+    {
+      path: 'historia',  // não coloque barra aqui
+      name: 'company-history',
+      component: CompanyHistory,
+    },
+    {
+      path: 'premios',  // não coloque barra aqui
+      name: 'company-awards',
+      component: CompanyAwards,
+    },
+  ]
+},
+```
+
+Crie os componentes
+
+```
+touch src/views/{CompanyHistory,CompanyAwards}.vue
+```
+
+```js
+// Company.vue
+<div>
+  <router-link :to="{ name: 'company-history' }">História</router-link>
+  |
+  <router-link :to="{ name: 'company-awards' }">Prêmios</router-link>
+</div>
+
+<router-view />
+```
+

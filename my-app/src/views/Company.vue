@@ -1,7 +1,15 @@
 <template>
   <div>
     <h1>A empresa</h1>
-    <p>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Asperiores illum praesentium, sint quis, ad ratione dignissimos quisquam fugit at porro, temporibus nulla perferendis fuga vitae, incidunt quod ullam! Perferendis, quos?</p>
+    <p>Mussum Ipsum, cacilds vidis litro abertis. Quem num gosta di mim que vai caçá sua turmis! Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Quem num gosta di mé, boa gentis num é. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.</p>
+
+    <div>
+      <router-link :to="{ name: 'company-history' }">História</router-link>
+      |
+      <router-link :to="{ name: 'company-awards' }">Prêmios</router-link>
+    </div>
+
+    <router-view />
   </div>
 </template>
 
