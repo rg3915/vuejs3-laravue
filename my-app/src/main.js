@@ -48,6 +48,9 @@ const routes = [
     path: '/contato',
     name: 'contact',
     component: Contact,
+    meta: {
+      auth: true,
+    },
     beforeEnter: (to, from, next) => {
       // console.log('to', to)
       // console.log('from', from)
@@ -65,18 +68,27 @@ const router = createRouter({
   routes,
 })
 
+const isLogged = false
+
 router.beforeEach((to, from, next) => {
-  console.log('beforeEach')
-  console.log('to', to)
-  console.log('from', from)
-  next()
+  // console.log('beforeEach')
+  // console.log('to', to)
+  // console.log('from', from)
+  
+  let n = null
+
+  if (to.meta.auth && !isLogged) {
+    n = { name: 'home' }
+  }
+
+  next(n)
 })
 
-router.afterEach((to, from) => {
-  console.log('afterEach')
-  console.log('to', to)
-  console.log('from', from)
-})
+// router.afterEach((to, from) => {
+//   console.log('afterEach')
+//   console.log('to', to)
+//   console.log('from', from)
+// })
 
 createApp(App)
   .use(router)

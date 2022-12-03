@@ -1059,3 +1059,43 @@ router.afterEach((to, from) => {
 })
 ```
 
+## Bloqueando rotas com guards
+
+```js
+// main.js
+{
+  path: '/contato',
+  name: 'contact',
+  component: Contact,
+  meta: {
+    auth: true,
+  },
+}
+
+const isLogged = false
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.auth && !isLogged) {
+    next({ name: 'home' }) // Se não estiver logado, ele redireciona.
+  } else {
+    next()
+  }
+})
+```
+
+E ainda podemos melhorar o código com
+
+```js
+// main.js
+router.beforeEach((to, from, next) => {
+  let n = null
+
+  if (to.meta.auth && !isLogged) {
+    n = { name: 'home' }
+  }
+
+  next(n)
+})
+```
+
+## 
