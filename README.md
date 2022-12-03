@@ -794,6 +794,8 @@ export default {
 
 ## Pegando dados da rota atual
 
+Mas esse processo deixa o componente muito dependente do sistema de roteamento.
+
 ```js
 // Team.vue
 <template>
@@ -831,5 +833,64 @@ export default {
     methods: {}
   }
 </script>
+```
+
+## Passando props para o componente da rota
+
+Com esse processo podemos deixar o componente mais flexível e independente do sistema de roteamento.
+
+Edite `main.js`
+
+```js
+// main.js
+{
+  path: '/equipe/:member',
+  name: 'team',
+  component: Team,
+  props: {
+    color: 'red',
+    member: 'regis',
+  }
+}
+```
+
+```js
+// Team.vue
+<script>
+  export default {
+    name: 'Team',
+    props: {
+      color: {
+        type: String,
+        default: '',
+      },
+      member: {
+        type: String,
+        default: '',
+      },
+    },
+    data() {
+      return {}
+    },
+    // computed: {
+    //   member() {
+    //     return this.$route.params.member
+    //   }
+    // },
+    methods: {}
+  }
+</script>
+```
+
+Ou dinamicamente podemos fazer:
+
+```js
+// main.js
+{
+  path: '/equipe/:member',
+  name: 'team',
+  component: Team,
+  props: route => ({ member: route.params.member, color: 'green' })
+}
 ```
 
