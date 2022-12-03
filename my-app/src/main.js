@@ -47,7 +47,12 @@ const routes = [
   {
     path: '/contato',
     name: 'contact',
-    component: Contact
+    component: Contact,
+    beforeEnter: (to, from, next) => {
+      console.log('to', to)
+      console.log('from', from)
+      next()
+    }
   },
   {
     path: '/:pathMatch(.*)',
