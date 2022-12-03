@@ -1113,7 +1113,10 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehaviour(to, from, savePosition) {
-    return { top: 0 }
+    return { 
+      el: '#main',
+      top: 0
+    }
   }
 })
 ```
