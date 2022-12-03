@@ -476,14 +476,6 @@ cd my-app
 npm run serve
 ```
 
-
-
-
-
-
-
-
-
 # Vue Route
 
 ## Instalando
@@ -495,6 +487,8 @@ npm add vue-router@4
 Edite `main.js`
 
 ```js
+import { createApp } from 'vue'
+import App from './App.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HelloWorld from './components/HelloWorld'
 
