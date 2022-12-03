@@ -8,9 +8,14 @@ import Contact from './views/Contact'
 const routes = [
   { path: '/', name: 'home', component: Home },
   {
+    path: '/a-empresa',
+    // redirect: '/empresa', ou
+    redirect: { name: 'company' },
+  },
+  {
     path: '/empresa',
     name: 'company',
-    alias: '/a-empresa',
+    // alias: '/a-empresa',
     component: Company
   },
   { path: '/contato', name: 'contact', component: Contact },

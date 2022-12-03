@@ -608,3 +608,20 @@ const routes = [
 }
 ```
 
+## Redirecionamento de rotas
+
+```js
+// main.js
+{
+  path: '/a-empresa',
+  // redirect: '/empresa', ou
+  redirect: { name: 'company' },
+},
+{
+  path: '/empresa',
+  name: 'company',
+  // alias: '/a-empresa',
+  component: Company
+}
+```
+
