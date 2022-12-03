@@ -649,3 +649,42 @@ import Team from './views/Team'
 <router-link :to="{ name: 'team', params: { member: 'regis' }}">Equipe</router-link>
 ```
 
+## Validando parâmetros
+
+Regex somente com letras
+
+```js
+// main.js
+{
+  path: '/equipe/:member([a-z]+)',
+}
+```
+
+Regex somente com números
+
+```js
+// main.js
+{
+  path: '/equipe/:member([0-9]+)',
+}
+```
+
+Regex somente com dígitos (números)
+
+```js
+// main.js
+{
+  path: '/equipe/:member(\\d+)',
+}
+```
+
+Regex somente com palavras (aceita números)
+
+```js
+// main.js
+{
+  path: '/equipe/:member(\\w+)',
+}
+```
+
+## 
