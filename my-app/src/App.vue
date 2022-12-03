@@ -1,5 +1,13 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
+  <div>
+    <router-link to="/">Home</router-link>
+     |
+    <router-link to="/empresa">Empresa</router-link>
+     |
+    <router-link to="/contato">Contato</router-link>
+  </div>
+
   <router-view />
 </template>
 
