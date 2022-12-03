@@ -521,3 +521,58 @@ E dentro de `src/views` crie os arquivos
 touch src/views/{Home,Company,Contact}.vue
 ```
 
+```js
+// main.js
+import { createApp } from 'vue'
+import App from './App.vue'
+import { createRouter, createWebHashHistory } from 'vue-router'
+import Home from './views/Home'
+import Company from './views/Company'
+import Contact from './views/Contact'
+
+const routes = [
+    { path: '/', component: Home },
+    { path: '/empresa', component: Company },
+    { path: '/contato', component: Contact },
+]
+
+const router = createRouter({
+    history: createWebHashHistory(),
+    routes,
+})
+
+createApp(App)
+  .use(router)
+  .mount('#app')
+```
+
+```js
+// App.vue
+<template>
+  <img alt="Vue logo" src="./assets/logo.png">
+  <div>
+    <router-link to="/">Home</router-link>
+     |
+    <router-link to="/empresa">Empresa</router-link>
+     |
+    <router-link to="/contato">Contato</router-link>
+  </div>
+
+  <router-view />
+</template>
+```
+
+## History modes
+
+```js
+// main.js
+import { createRouter, createWebHistory } from 'vue-router'
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes,
+})
+```
+
+## Nomeando rotas
+

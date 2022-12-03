@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Contato</h1>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste nostrum mollitia corporis animi id qui commodi at eligendi, velit nihil minima aut eos, fuga repellendus assumenda. Deleniti quo minus ex!</p>
+    <p>Mussum Ipsum, cacilds vidis litro abertis. Quem num gosta di mim que vai caçá sua turmis! Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Quem num gosta di mé, boa gentis num é. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.</p>
   </div>
 </template>
 
