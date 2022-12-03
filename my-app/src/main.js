@@ -6,14 +6,14 @@ import Company from './views/Company'
 import Contact from './views/Contact'
 
 const routes = [
-    { path: '/', component: Home },
-    { path: '/empresa', component: Company },
-    { path: '/contato', component: Contact },
+  { path: '/', name: 'home', component: Home },
+  { path: '/empresa', name: 'company', component: Company },
+  { path: '/contato', name: 'contact', component: Contact },
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
+  history: createWebHistory(),
+  routes,
 })
 
 createApp(App)

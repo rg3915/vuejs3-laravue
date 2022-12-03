@@ -576,3 +576,22 @@ const router = createRouter({
 
 ## Nomeando rotas
 
+```js
+// main.js
+const routes = [
+    { path: '/', name: 'home', component: Home },
+    { path: '/empresa', name: 'company', component: Company },
+    { path: '/contato', name: 'contact', component: Contact },
+]
+```
+
+```js
+// App.vue
+<div>
+  <router-link :to="{ name: 'home' }">Home</router-link>
+   |
+  <router-link :to="{ name: 'company' }">Empresa</router-link>
+   |
+  <router-link :to="{ name: 'contact' }">Contato</router-link>
+</div>
+```
