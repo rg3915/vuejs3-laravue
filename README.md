@@ -774,3 +774,21 @@ created() {
 }
 ```
 
+## Navegando pelo histórico de rotas
+
+```js
+// App.vue
+<a href="" @click.stop.prevent="goBack()">Voltar</a>
+
+<script>
+export default {
+  name: 'App',
+  methods: {
+    goBack() {
+      this.$router.go(-1)
+    }
+  }
+}
+</script>
+```
+
