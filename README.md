@@ -1142,3 +1142,27 @@ const Error404 = () => import(/* webpackChunName: "error404" */ './views/404')
     component: () => import(/* webpackChunName: "company" */ './views/Company'), // <<<
 ```
 
+## Busca de dados
+
+```js
+// Company.vue
+watch: {
+  // '$route'(newValue, oldValue) {
+  //   this.fetchData()
+  //   console.log(newValue)
+  //   console.log(oldValue)
+  // }
+  '$route'() {
+    this.fetchData()
+  }
+},
+methods: {
+  fetchData() {
+    // ajax
+    console.log('fetchData')
+  }
+}
+```
+
+## Organizando arquivo de rotas
+

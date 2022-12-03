@@ -45,6 +45,22 @@
         return this.$route.meta.sidebar
       }
     },
+    watch: {
+      // '$route'(newValue, oldValue) {
+      //   this.fetchData()
+      //   console.log(newValue)
+      //   console.log(oldValue)
+      // }
+      '$route'() {
+        this.fetchData()
+      }
+    },
+    methods: {
+      fetchData() {
+        // ajax
+        console.log('fetchData')
+      }
+    }
   }
 </script>
 
