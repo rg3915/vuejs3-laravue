@@ -896,7 +896,7 @@ Ou dinamicamente podemos fazer:
 
 ## Criando subrotas
 
-`children`
+Atributo `children`
 
 ```js
 // main.js
@@ -939,5 +939,60 @@ touch src/views/{CompanyHistory,CompanyAwards}.vue
 </div>
 
 <router-view />
+```
+
+## Passando propriedades estáticas
+￼
+Atributo `meta`
+
+```js
+// main.js
+{
+  path: '/empresa',
+  // ...
+  meta: {
+    sidebar: true,
+    auth: false,
+  }
+```
+
+```js
+// Company.vue
+<template>
+  <div>
+    <h1>A empresa</h1>
+
+    <div :class="{ 'sidebar': sidebar }">
+      <router-link :to="{ name: 'company-history' }">História</router-link>
+      |
+      <router-link :to="{ name: 'company-awards' }">Prêmios</router-link>
+    </div>
+
+    {{ sidebar }}
+
+    <router-view />
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'Company',
+    data() {
+      return {}
+    },
+    computed: {
+      sidebar() {
+        return this.$route.meta.sidebar
+      }
+    },
+  }
+</script>
+
+<style>
+  .sidebar {
+    background-color: #CCC;
+    padding: 5px;
+  }
+</style>
 ```
 
