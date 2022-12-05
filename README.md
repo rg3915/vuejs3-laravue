@@ -1197,3 +1197,70 @@ vue add router
 npm run serve
 ```
 
+# Vuex
+
+https://vuex.vuejs.org/
+
+Gerenciador de Estado Global
+
+
+**state** são os dados.
+
+**mutations** é a central onde se controla as alterações do estado.
+
+**actions** são ações que podem alterar os dados.
+
+Em resumo, quando você executa uma `actions`, ele ativa uma `mutations`, que por fim altera o `state`.
+
+![](https://vuex.vuejs.org/vuex.png)
+
+
+## Diferença entre mutations e actions
+
+**mutations** são síncronas.
+
+**actions** são **assíncronas**. Por exemplo, ajax pode ser feito nas `actions`.
+
+
+## Instalação
+
+Crie uma nova app
+
+```
+vue create my-app-vuex
+cd my-app-vuex
+```
+
+e depois instale o vuex.
+
+```
+npm install vuex@next --save
+```
+
+```js
+// main.js
+import { createApp } from 'vue'
+import { createStore } from 'vuex'
+import App from './App.vue'
+
+const store = createStore({
+  state() {
+    return {
+      first_name: 'Jon',
+      last_name: 'Snow',
+      email: 'jon@snow.com',
+    }
+  },
+
+  mutation: {
+    updateName() {}
+  }
+})
+
+createApp(App)
+  .use(store)
+  .mount('#app')
+
+console.log(store.state.email)
+```
+
