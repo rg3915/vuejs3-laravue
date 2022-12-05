@@ -2,26 +2,29 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
 
-    <p>{{ $store.state.first_name }} {{ $store.state.last_name }}</p>
-    <p>{{ $store.state.email }}</p>
-    <p>{{ userFirstName }}</p>
+    <p>{{ firstName }} {{ lastName }}</p>
+    <p>{{ email }}</p>
     <p>{{ fullName }}</p>
 
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
   },
   computed: {
-    userFirstName() {
-      return this.$store.state.first_name
-    },
+    ...mapState({
+      firstName: state => state.first_name,
+      lastName: state => state.last_name,
+      email: state => state.email,
+    }),
     fullName() {
-      return `${ this.$store.state.first_name } ${ this.$store.state.last_name }`
+      return `${this.firstName} ${this.lastName}`
     }
   }
 }
