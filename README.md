@@ -1475,5 +1475,62 @@ methods: {
 
 ## Mutations - mapMutations helper
 
+Mapeamos uma lista de commits:
 
+```js
+// main.js
+mutations: {
+    increment(state, value) {
+      state.counter += value;
+    },
+
+    decrement(state, value) {
+      state.counter -= value;
+    },
+  }
+```
+
+```vue
+// CounterView.vue
+@click.stop.prevent="decrement(10)"
+
+@click.stop.prevent="increment(10)"
+
+<script>
+import { mapMutations } from 'vuex'
+
+export default {
+  name: 'CounterView',
+  methods: {
+    ...mapMutations(['increment', 'decrement'])
+  },
+}
+</script>
+```
+
+E por fim vamos mapear o `state.counter`
+
+```vue
+// CounterView.vue
+<input
+  :value="counter"
+
+<script>
+import { mapState, mapMutations } from 'vuex'
+
+export default {
+  name: 'CounterView',
+
+  computed: {
+    ...mapState({
+      counter: state => state.counter
+    })
+  },
+
+  methods: {
+    ...mapMutations(['increment', 'decrement'])
+  },
+}
+</script>
+```
 

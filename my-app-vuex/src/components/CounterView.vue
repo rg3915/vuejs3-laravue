@@ -4,11 +4,11 @@
       class="btn btn-outline-secondary"
       type="button"
       id="button-addon1"
-      @click.stop.prevent="decrement()"
+      @click.stop.prevent="decrement(10)"
     >-
     </button>
     <input
-      :value="$store.state.counter"
+      :value="counter"
       type="text"
       class="form-control"
       placeholder=""
@@ -19,22 +19,26 @@
       class="btn btn-outline-secondary"
       type="button"
       id="button-addon2"
-      @click.stop.prevent="increment()"
+      @click.stop.prevent="increment(10)"
     >+
     </button>
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
+
 export default {
   name: 'CounterView',
+
+  computed: {
+    ...mapState({
+      counter: state => state.counter
+    })
+  },
+
   methods: {
-    increment() {
-      this.$store.commit('increment', { value: 10 })
-    },
-    decrement() {
-      this.$store.commit('decrement', { value: 10 })
-    }
+    ...mapMutations(['increment', 'decrement'])
   },
 }
 </script>
