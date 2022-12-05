@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import { createStore } from 'vuex'
 import App from './App.vue'
+import { INCREMENT } from './mutations'
 
 const store = createStore({
   state() {
@@ -13,11 +14,11 @@ const store = createStore({
   },
 
   mutations: {
-    increment(state, value) {
+    [INCREMENT](state, value) {
       state.counter += value;
     },
 
-    decrement(state, value) {
+    DECREMENT(state, value) {
       state.counter -= value;
     },
   },

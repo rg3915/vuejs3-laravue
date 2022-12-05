@@ -1572,3 +1572,59 @@ Ou melhorando ainda mais o código podemos ter
     },
   },
 ```
+
+## Mutations - padrão de código
+
+Defina o nome das mutations em maiúscula
+
+```js
+// main.js
+mutations: {
+    INCREMENT(state, value) {
+      state.counter += value;
+    },
+
+    DECREMENT(state, value) {
+      state.counter -= value;
+    }
+```
+
+```vue
+// CounterView.vue
+  methods: {
+    ...mapMutations({
+      $_add: 'INCREMENT',
+      $_remove: 'DECREMENT',
+    }),
+    ...
+  },
+```
+
+Também podemos definir o nome da mutations num arquivo separado.
+
+```
+touch src/mutations.js
+```
+
+```js
+// mutations.js
+export const INCREMENT = 'INCREMENT'
+export const DECREMENT = 'DECREMENT'
+```
+
+```js
+// main.js
+import { INCREMENT } from './mutations'
+
+  mutations: {
+    [INCREMENT](state, value) {
+      state.counter += value;
+    },
+
+```
+
+Colocando entre colchetes o nome da variável fica dinâmico.
+
+
+
+
