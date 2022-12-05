@@ -1288,7 +1288,7 @@ computed: {
 
 E teremos:
 
-```js
+```vue
 // HelloWorld.vue
 <template>
   <div class="hello">
@@ -1346,7 +1346,7 @@ computed: mapState({
 })
 ```
 
-Agora vamos usar *spread operator* para mergear os objetos.
+Agora vamos usar [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) para mergear os objetos.
 
 ```vue
 <template>
