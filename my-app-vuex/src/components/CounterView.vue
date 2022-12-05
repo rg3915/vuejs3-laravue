@@ -4,7 +4,7 @@
       class="btn btn-outline-secondary"
       type="button"
       id="button-addon1"
-      @click.stop.prevent="decrement(10)"
+      @click.stop.prevent="decrement()"
     >-
     </button>
     <input
@@ -19,7 +19,7 @@
       class="btn btn-outline-secondary"
       type="button"
       id="button-addon2"
-      @click.stop.prevent="increment(10)"
+      @click.stop.prevent="increment()"
     >+
     </button>
   </div>
@@ -38,7 +38,16 @@ export default {
   },
 
   methods: {
-    ...mapMutations(['increment', 'decrement'])
+    ...mapMutations({
+      $_add: 'increment',
+      $_remove: 'decrement',
+    }),
+    increment() {
+      this.$_add(10)
+    },
+    decrement() {
+      this.$_remove(10)
+    },
   },
 }
 </script>

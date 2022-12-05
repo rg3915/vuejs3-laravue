@@ -1475,7 +1475,7 @@ methods: {
 
 ## Mutations - mapMutations helper
 
-Mapeamos uma lista de commits:
+Mapeamos um array de commits:
 
 ```js
 // main.js
@@ -1534,3 +1534,41 @@ export default {
 </script>
 ```
 
+Também podemos mapear as mutations como objetos, a partir daí podemos alterar o nome da mutation, caso necessário.
+
+```vue
+// CounterView.vue
+@click.stop.prevent="remove(10)"
+
+@click.stop.prevent="add(10)"
+
+  methods: {
+    ...mapMutations({
+      'add': 'increment',
+      'remove': 'decrement',
+    })
+  },
+```
+
+Ou melhorando ainda mais o código podemos ter
+
+
+```vue
+// CounterView.vue
+@click.stop.prevent="decrement()"
+
+@click.stop.prevent="increment()"
+
+  methods: {
+    ...mapMutations({
+      $_add: 'increment',
+      $_remove: 'decrement',
+    }),
+    increment() {
+      this.$_add(10)
+    },
+    decrement() {
+      this.$_remove(10)
+    },
+  },
+```
