@@ -30,10 +30,10 @@ export default {
   name: 'CounterView',
   methods: {
     increment() {
-      this.$store.commit('increment')
+      this.$store.commit('increment', { value: 10 })
     },
     decrement() {
-      this.$store.commit('decrement')
+      this.$store.commit('decrement', { value: 10 })
     }
   },
 }

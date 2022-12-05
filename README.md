@@ -1420,7 +1420,58 @@ export default {
 
 ## Mutations - passando parâmetros
 
+```js
+// main.js
+mutations: {
+    increment(state, value) {
+      state.counter += value;
+    },
 
+    decrement(state, value) {
+      state.counter -= value;
+    },
+  }
+```
+
+```vue
+// CounterView.vue
+methods: {
+    increment() {
+      this.$store.commit('increment', 10)
+    },
+    decrement() {
+      this.$store.commit('decrement', 10)
+    }
+  }
+```
+
+Ou podemos passar um objeto:
+
+```js
+// main.js
+mutations: {
+    increment(state, payload) {
+      state.counter += payload.value;
+    },
+
+    decrement(state, payload) {
+      state.counter -= payload.value;
+    },
+  }
+```
+
+```vue
+// CounterView.vue
+methods: {
+    increment() {
+      this.$store.commit('increment', { value: 10 })
+    },
+    decrement() {
+      this.$store.commit('decrement', { value: 10 })
+    }
+  },
+}
+```
 
 ## Mutations - mapMutations helper
 
