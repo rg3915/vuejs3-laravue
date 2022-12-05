@@ -1252,7 +1252,7 @@ const store = createStore({
     }
   },
 
-  mutation: {
+  mutations: {
     updateName() {}
   }
 })
@@ -1381,3 +1381,48 @@ export default {
 }
 </script>
 ```
+
+## Mutations
+
+Defina a mutation em `main.js`
+
+```js
+// main.js
+mutations: {
+  increment(state) {
+    state.counter += 1;
+  },
+
+  decrement(state) {
+    state.counter -= 1;
+  },
+}
+```
+
+Depois, use-a com o comando `commit()` em `CounterView.vue`
+
+```vue
+// CounterView.vue
+<script>
+export default {
+  name: 'CounterView',
+  methods: {
+    increment() {
+      this.$store.commit('increment')
+    },
+    decrement() {
+      this.$store.commit('decrement')
+    }
+  },
+}
+</script>
+```
+
+## Mutations - passando parâmetros
+
+
+
+## Mutations - mapMutations helper
+
+
+
