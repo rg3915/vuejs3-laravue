@@ -1737,6 +1737,26 @@ export default {
 </script>
 ```
 
+Podemos refatorar ainda mais o nosso código mapeando as actions
+
+```js
+// CounterView.vue
+methods: {
+  ...mapActions({
+    $_counter: 'counter'
+  }),
+
+  increment() {
+    this.$_counter({ type: 'INCREMENT', value: 10 })
+  },
+
+  decrement() {
+    this.$_counter({ type: 'DECREMENT', value: 10 })
+  }
+}
+```
+
+
 
 
 

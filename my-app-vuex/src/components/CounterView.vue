@@ -8,7 +8,7 @@
     >-
     </button>
     <input
-      :value="counting"
+      :value="counter"
       type="text"
       class="form-control"
       placeholder=""
@@ -33,7 +33,7 @@ export default {
 
   computed: {
     ...mapState({
-      counting: state => state.counter
+      counter: state => state.counter
     })
   },
 
@@ -43,18 +43,20 @@ export default {
       $_remove: 'DECREMENT',
     }),
 
-    ...mapActions(['counter']),
+    ...mapActions({
+      $_counter: 'counter'
+    }),
 
     increment() {
       // this.$store.dispatch('counter', 5)
       // this.$store.dispatch('counter', { type: 'INCREMENT', value: 10 })
-      this.counter({ type: 'INCREMENT', value: 10 })
+      this.$_counter({ type: 'INCREMENT', value: 10 })
       // this.$_add(10)
     },
 
     decrement() {
       // this.$store.dispatch('counter', { type: 'DECREMENT', value: 10 })
-      this.counter({ type: 'DECREMENT', value: 10 })
+      this.$_counter({ type: 'DECREMENT', value: 10 })
       // this.$_remove(10)
     },
   },
