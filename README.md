@@ -2125,7 +2125,13 @@ touch src/store/modules/posts/index.js
 
 ## Refatorando módulos 2
 
+Vamos separar ainda mais nossos arquivos
 
+```
+touch src/store/modules/counter/{actions,state}.js
+touch src/store/modules/posts/{state,getters}.js
+touch src/store/modules/users/{state,getters}.js
+```
 
 
 ## Criando formulário com VUEX

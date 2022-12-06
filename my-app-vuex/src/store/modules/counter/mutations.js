@@ -1,2 +1,9 @@
-export const INCREMENT = 'INCREMENT'
-export const DECREMENT = 'DECREMENT'
+export default {
+  INCREMENT(state, value) {
+    state.counter += value;
+  },
+
+  DECREMENT(state, value) {
+    state.counter -= value;
+  },
+}
