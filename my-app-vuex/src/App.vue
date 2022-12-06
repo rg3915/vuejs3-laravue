@@ -16,14 +16,16 @@ export default {
     Counter
   },
 
-  // created() {
-  //   console.log(this.$_getPostById(1))
-  // },
+  created() {
+    console.log(this.$_getPostById(1))
+  },
 
   computed: {
     ...mapGetters('users', {
       $_fullName: 'fullName',
-      // $_getPostById: 'getPostById',
+    }),
+    ...mapGetters('posts', {
+      $_getPostById: 'getPostById',
     })
   }
 }

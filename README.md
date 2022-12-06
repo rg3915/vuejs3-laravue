@@ -2060,7 +2060,40 @@ computed: {
 
 ## Migrando dados para o módulo posts
 
+```js
+// main.js
+posts: {
+      namespaced: true,
+      state: () => ({
+        posts: [
+          { id: 1, title: 'Lorem Ipsum' },
+          { id: 2, title: 'Mussum Ipsum' },
+          { id: 3, title: 'VueJS' },
+        ]
+      }),
+      getters: {
+        getPostById: (state) => (id) => {
+          return state.posts.find(o => o.id === id)
+        },
+      }
+    }
+```
 
+```js
+// App.vue
+created() {
+    console.log(this.$_getPostById(1))
+  },
+
+  computed: {
+    ...mapGetters('users', {
+      $_fullName: 'fullName',
+    }),
+    ...mapGetters('posts', {
+      $_getPostById: 'getPostById',
+    })
+  }
+```
 
 
 ## Refatorando módulos 1
