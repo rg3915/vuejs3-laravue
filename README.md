@@ -2098,7 +2098,29 @@ created() {
 
 ## Refatorando módulos 1
 
+Crie uma pasta chamada `store`
 
+```
+mkdir src/store
+touch src/store/index.js
+
+# e
+
+mv src/store/mutations.js src/store/modules/counter
+```
+
+E ainda podemos fazer
+
+```
+mkdir -p src/store/modules/users
+touch src/store/modules/users/index.js
+
+mkdir -p src/store/modules/counter
+touch src/store/modules/counter/index.js
+
+mkdir -p src/store/modules/posts
+touch src/store/modules/posts/index.js
+```
 
 
 ## Refatorando módulos 2
