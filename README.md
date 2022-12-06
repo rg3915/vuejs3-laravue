@@ -1837,4 +1837,44 @@ export default {
 </script>
 ```
 
+## Getters - passando parâmetros
+
+```js
+// main.js
+const store = createStore({
+  state() {
+    return {
+        { id: 1, title: 'Lorem Ipsum' },
+        { id: 2, title: 'Mussum Ipsum' },
+        { id: 3, title: 'VueJS' },
+      ],
+    }
+  },
+
+  getters: {
+    //   return function(id) {
+    //     return state.posts.find(o => o.id === id)
+    //   }
+    // },
+    getPostById: (state) => (id) => {
+      return state.posts.find(o => o.id === id)
+    },
+  }
+})
+```
+
+
+```vue
+// App.vue
+created() {
+    console.log(this.$_getPostById(1))
+  },
+
+  computed: {
+    ...mapGetters({
+      $_getPostById: 'getPostById',
+    })
+  }
+```
+
 
