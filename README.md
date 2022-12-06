@@ -2141,6 +2141,9 @@ touch src/store/modules/users/{state,getters}.js
 
 ## Instalando Vuex pelo VUE CLI
 
+```
+vue create my-app-vuex2
+cd my-app-vuex2
 
-
-
+vue add vuex
+```
