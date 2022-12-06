@@ -43,10 +43,13 @@ export default {
       $_remove: 'DECREMENT',
     }),
     increment() {
-      this.$_add(10)
+      // this.$store.dispatch('counter', 5)
+      this.$store.dispatch('counter', { type: 'INCREMENT', value: 10 })
+      // this.$_add(10)
     },
     decrement() {
-      this.$_remove(10)
+      this.$store.dispatch('counter', { type: 'DECREMENT', value: 10 })
+      // this.$_remove(10)
     },
   },
 }

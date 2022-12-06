@@ -22,6 +22,15 @@ const store = createStore({
       state.counter -= value;
     },
   },
+
+  actions: {
+    // counter({ commit }, payload) {
+    //   commit('INCREMENT', payload)
+    // }
+    counter({ commit }, { type, value }) {
+      commit(type, value)
+    }
+  }
 })
 
 createApp(App)

@@ -1600,7 +1600,7 @@ mutations: {
   },
 ```
 
-Também podemos definir o nome da mutations num arquivo separado.
+Também podemos definir o nome da mutations num arquivo separado. Meio repetitivo, mas tudo bem.
 
 ```
 touch src/mutations.js
@@ -1626,5 +1626,75 @@ import { INCREMENT } from './mutations'
 Colocando entre colchetes o nome da variável fica dinâmico.
 
 
+## Actions
+
+```js
+// main.js
+actions: {
+    counter(context, payload) {}
+  }
+```
+
+O comando `dispatch()` é que executa a `action` de fato.
+
+```js
+// CounterView.vue
+  methods: {
+    increment() {
+      this.$store.dispatch('counter', 5)
+    },
+  }
+```
+
+Então devemos ter
+
+```js
+// main.js
+actions: {
+    counter(context, payload) {
+      context.commit('INCREMENT', payload)
+    }
+  }
+```
+
+Ou simplesmente, apenas o `commit`.
+
+```js
+// main.js
+actions: {
+    counter({ commit }, payload) {
+      commit('INCREMENT', payload)
+    }
+  }
+```
+
+Mas ainda falta o `decrement`, então façamos
+
+```js
+// main.js
+actions: {
+    counter({ commit }, { type, value }) {
+      commit(type, value)
+    }
+  }
+```
+
+```js
+// CounterView.vue
+methods: {
+    ...mapMutations({
+      $_add: 'INCREMENT',
+      $_remove: 'DECREMENT',
+    }),
+    increment() {
+      this.$store.dispatch('counter', { type: 'INCREMENT', value: 10 })
+    },
+    decrement() {
+      this.$store.dispatch('counter', { type: 'DECREMENT', value: 10 })
+    },
+  }
+```
+
+Ou seja, as `actions` são usadas para criar contextos.
 
 
