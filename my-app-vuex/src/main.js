@@ -7,6 +7,7 @@ const store = createStore({
   strict: true,
   modules: {
     users: {
+      namespaced: true,
       // atributo, que recebe uma função, que retorna um objeto.
       // state: () => ({}),
       state: () => ({
@@ -19,6 +20,26 @@ const store = createStore({
       actions: {},
       getters: {},
     },
+    counter: {
+      namespaced: true,
+      state: () => ({
+        counter: 0
+      }),
+      mutations: {
+        [INCREMENT](state, value) {
+          state.counter += value;
+        },
+
+        DECREMENT(state, value) {
+          state.counter -= value;
+        },
+      },
+      actions: {
+        counter({ commit }, { type, value }) {
+          commit(type, value)
+        }
+      },
+    }
   },
   state() {
     return {
@@ -30,26 +51,7 @@ const store = createStore({
         { id: 2, title: 'Mussum Ipsum' },
         { id: 3, title: 'VueJS' },
       ],
-      counter: 0,
-    }
-  },
-
-  mutations: {
-    [INCREMENT](state, value) {
-      state.counter += value;
-    },
-
-    DECREMENT(state, value) {
-      state.counter -= value;
-    },
-  },
-
-  actions: {
-    // counter({ commit }, payload) {
-    //   commit('INCREMENT', payload)
-    // }
-    counter({ commit }, { type, value }) {
-      commit(type, value)
+      // counter: 0,
     }
   },
 

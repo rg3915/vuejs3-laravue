@@ -1933,6 +1933,90 @@ const store = createStore({
 
 ## Migrando dados para o módulo contador
 
+```js
+// main.js
+const store = createStore({
+  strict: true,
+  modules: {
+    users: {
+      ...
+    },
+    counter: {
+      state: () => ({
+        counter: 0
+      }),
+      mutations: {
+        [INCREMENT](state, value) {
+          state.counter += value;
+        },
+
+        DECREMENT(state, value) {
+          state.counter -= value;
+        },
+      },
+      actions: {
+        counter({ commit }, { type, value }) {
+          commit(type, value)
+        }
+      },
+    }
+  },
+  state() {
+    return {
+      first_name: 'Jon',
+      last_name: 'Snow',
+      email: 'jon@snow.com',
+      posts: [
+        { id: 1, title: 'Lorem Ipsum' },
+        { id: 2, title: 'Mussum Ipsum' },
+        { id: 3, title: 'VueJS' },
+      ],
+      // counter: 0,
+    }
+  }
+```
+
+
+```js
+// CounterView.vue
+computed: {
+    ...mapState({
+      counter: state => state.counter.counter
+    })
+  }
+```
+
+### Usando namespaced
+
+o `namespaced` garante que você sempre vai usar o módulo certo.
+
+```js
+// main.js
+const store = createStore({
+  strict: true,
+  modules: {
+    users: {
+      namespaced: true,
+      state: () => ({}),
+      ...
+    },
+    counter: {
+      namespaced: true,
+      state: () => ({}),
+```
+
+```js
+// CounterView.vue
+methods: {
+  ...mapMutations('counter', { // <<< namespaced
+    $_add: 'INCREMENT',
+    $_remove: 'DECREMENT',
+  }),
+
+  ...mapActions('counter', { // <<< namespaced
+    $_counter: 'counter'
+  })
+```
 
 
 

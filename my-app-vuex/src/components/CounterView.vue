@@ -33,17 +33,17 @@ export default {
 
   computed: {
     ...mapState({
-      counter: state => state.counter
+      counter: state => state.counter.counter
     })
   },
 
   methods: {
-    ...mapMutations({
+    ...mapMutations('counter', {
       $_add: 'INCREMENT',
       $_remove: 'DECREMENT',
     }),
 
-    ...mapActions({
+    ...mapActions('counter', {
       $_counter: 'counter'
     }),
 
