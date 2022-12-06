@@ -1756,8 +1756,28 @@ methods: {
 }
 ```
 
+## Getters
 
+`Getters` é equivalente ao `computed`.
 
+```js
+// main.js
+getters: {
+    fullName(state) {
+      return `${ state.first_name } ${ state.last_name }`
+    }
+  }
+```
+
+```vue
+// App.vue
+<template>
+  <div class="container mt-10">
+    {{ $store.getters.fullName }}
+    <Counter />
+  </div>
+</template>
+```
 
 
 

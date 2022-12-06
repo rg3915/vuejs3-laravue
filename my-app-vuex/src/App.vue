@@ -1,5 +1,6 @@
 <template>
   <div class="container mt-10">
+    {{ $store.getters.fullName }}
     <Counter />
   </div>
 </template>

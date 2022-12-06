@@ -30,6 +30,12 @@ const store = createStore({
     counter({ commit }, { type, value }) {
       commit(type, value)
     }
+  },
+
+  getters: {
+    fullName(state) {
+      return `${ state.first_name } ${ state.last_name }`
+    }
   }
 })
 
