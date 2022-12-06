@@ -1,17 +1,22 @@
 <template>
   <div class="container mt-10">
-    {{ $store.getters.fullName }}
+    {{ fullName }}
     <Counter />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Counter from './components/CounterView.vue'
 
 export default {
   name: 'App',
   components: {
     Counter
+  },
+
+  computed: {
+    ...mapGetters(['fullName'])
   }
 }
 </script>

@@ -1779,7 +1779,32 @@ getters: {
 </template>
 ```
 
+## Getters - mapGetters
 
+```vue
+// App.vue
+<template>
+  <div class="container mt-10">
+    {{ fullName }}
+    <Counter />
+  </div>
+</template>
 
+<script>
+import { mapGetters } from 'vuex'
+import Counter from './components/CounterView.vue'
+
+export default {
+  name: 'App',
+  components: {
+    Counter
+  },
+
+  computed: {
+    ...mapGetters(['fullName'])
+  }
+}
+</script>
+```
 
 
