@@ -1807,4 +1807,34 @@ export default {
 </script>
 ```
 
+Ou mapeando, temos (a vantagem é que isso evita conflito em nomes de métodos locais).
+
+```vue
+// App.vue
+<template>
+  <div class="container mt-10">
+    {{ $_fullName }}
+    <Counter />
+  </div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex'
+import Counter from './components/CounterView.vue'
+
+export default {
+  name: 'App',
+  components: {
+    Counter
+  },
+
+  computed: {
+    ...mapGetters({
+      $_fullName: 'fullName'
+    })
+  }
+}
+</script>
+```
+
 

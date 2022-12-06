@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-10">
-    {{ fullName }}
+    {{ $_fullName }}
     <Counter />
   </div>
 </template>
@@ -16,7 +16,9 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['fullName'])
+    ...mapGetters({
+      $_fullName: 'fullName'
+    })
   }
 }
 </script>
