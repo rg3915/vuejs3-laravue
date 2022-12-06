@@ -4,6 +4,7 @@ import App from './App.vue'
 import { INCREMENT } from './mutations'
 
 const store = createStore({
+  strict: true,
   state() {
     return {
       first_name: 'Jon',

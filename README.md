@@ -1878,3 +1878,12 @@ created() {
 ```
 
 
+## Configurando o strict mode
+
+```js
+// main.js
+const store = createStore({
+  strict: true,
+  ...
+```
+
