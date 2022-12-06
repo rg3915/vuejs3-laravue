@@ -8,7 +8,7 @@
     >-
     </button>
     <input
-      :value="counter"
+      :value="counting"
       type="text"
       class="form-control"
       placeholder=""
@@ -26,14 +26,14 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 
 export default {
   name: 'CounterView',
 
   computed: {
     ...mapState({
-      counter: state => state.counter
+      counting: state => state.counter
     })
   },
 
@@ -42,13 +42,19 @@ export default {
       $_add: 'INCREMENT',
       $_remove: 'DECREMENT',
     }),
+
+    ...mapActions(['counter']),
+
     increment() {
       // this.$store.dispatch('counter', 5)
-      this.$store.dispatch('counter', { type: 'INCREMENT', value: 10 })
+      // this.$store.dispatch('counter', { type: 'INCREMENT', value: 10 })
+      this.counter({ type: 'INCREMENT', value: 10 })
       // this.$_add(10)
     },
+
     decrement() {
-      this.$store.dispatch('counter', { type: 'DECREMENT', value: 10 })
+      // this.$store.dispatch('counter', { type: 'DECREMENT', value: 10 })
+      this.counter({ type: 'DECREMENT', value: 10 })
       // this.$_remove(10)
     },
   },

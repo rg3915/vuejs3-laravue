@@ -1698,3 +1698,48 @@ methods: {
 Ou seja, as `actions` são usadas para criar contextos.
 
 
+## Actions - mapActions helper
+
+```js
+// CounterView.vue
+<input
+      :value="counting"
+
+<script>
+import { mapState, mapMutations, mapActions } from 'vuex'
+
+export default {
+  name: 'CounterView',
+
+  computed: {
+    ...mapState({
+      counting: state => state.counter  // aqui foi renomeado
+    })
+  },
+
+  methods: {
+    ...mapMutations({
+      $_add: 'INCREMENT',
+      $_remove: 'DECREMENT',
+    }),
+
+    ...mapActions(['counter']),  // <<<
+
+    increment() {
+      this.counter({ type: 'INCREMENT', value: 10 })
+    },
+
+    decrement() {
+      this.counter({ type: 'DECREMENT', value: 10 })
+    },
+  },
+}
+</script>
+```
+
+
+
+
+
+
+
