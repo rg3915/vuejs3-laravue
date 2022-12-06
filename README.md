@@ -1887,3 +1887,82 @@ const store = createStore({
   ...
 ```
 
+## Criando módulos
+
+```js
+// main.js
+const store = createStore({
+  strict: true,
+  modules: {
+    users: {
+      // atributo, que recebe uma função, que retorna um objeto.
+      state: () => ({}),
+      // recebe um objeto
+      mutations: {},
+      actions: {},
+      getters: {},
+    }
+  }
+```
+
+Então, temos
+
+```js
+// main.js
+const store = createStore({
+  strict: true,
+  modules: {
+    users: {
+      state: () => ({
+        first_name: 'Arya',
+        last_name: 'Stark',
+        email: 'arya@stark.com',
+      }),
+      mutations: {},
+      actions: {},
+      getters: {},
+    },
+  }
+```
+
+```js
+// App.vue
+<p>{{ $store.state.users.email }}</p>
+```
+
+
+## Migrando dados para o módulo contador
+
+
+
+
+## Migrando dados para o módulo users
+
+
+
+
+## Migrando dados para o módulo posts
+
+
+
+
+## Refatorando módulos 1
+
+
+
+
+## Refatorando módulos 2
+
+
+
+
+## Criando formulário com VUEX
+
+
+
+
+## Instalando Vuex pelo VUE CLI
+
+
+
+

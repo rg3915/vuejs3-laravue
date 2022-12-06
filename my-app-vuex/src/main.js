@@ -5,6 +5,21 @@ import { INCREMENT } from './mutations'
 
 const store = createStore({
   strict: true,
+  modules: {
+    users: {
+      // atributo, que recebe uma função, que retorna um objeto.
+      // state: () => ({}),
+      state: () => ({
+        first_name: 'Arya',
+        last_name: 'Stark',
+        email: 'arya@stark.com',
+      }),
+      // recebe um objeto
+      mutations: {},
+      actions: {},
+      getters: {},
+    },
+  },
   state() {
     return {
       first_name: 'Jon',
