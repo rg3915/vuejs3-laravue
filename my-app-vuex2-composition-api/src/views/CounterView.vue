@@ -1,5 +1,64 @@
 <template>
-  <div class="about">
-    <h1>Contador</h1>
+  <div class="input-group mb-3">
+    <button
+      class="btn btn-outline-secondary"
+      type="button"
+      id="button-addon1"
+      @click.stop.prevent="decrement()"
+    >-
+    </button>
+    <input
+      :value="counter"
+      type="text"
+      class="form-control"
+      placeholder=""
+      aria-label="Example text with button addon"
+      aria-describedby="button-addon1"
+    >
+    <button
+      class="btn btn-outline-secondary"
+      type="button"
+      id="button-addon2"
+      @click.stop.prevent="increment()"
+    >+
+    </button>
   </div>
 </template>
+
+<script>
+import { mapState, mapMutations, mapActions } from 'vuex'
+
+export default {
+  name: 'CounterView',
+
+  computed: {
+    ...mapState({
+      counter: state => state.counter.counter
+    })
+  },
+
+  methods: {
+    ...mapMutations('counter', {
+      $_add: 'INCREMENT',
+      $_remove: 'DECREMENT',
+    }),
+
+    ...mapActions('counter', {
+      $_counter: 'counter'
+    }),
+
+    increment() {
+      // this.$store.dispatch('counter', 5)
+      // this.$store.dispatch('counter', { type: 'INCREMENT', value: 10 })
+      this.$_counter({ type: 'INCREMENT', value: 10 })
+      // this.$_add(10)
+    },
+
+    decrement() {
+      // this.$store.dispatch('counter', { type: 'DECREMENT', value: 10 })
+      this.$_counter({ type: 'DECREMENT', value: 10 })
+      // this.$_remove(10)
+    },
+  },
+}
+</script>
