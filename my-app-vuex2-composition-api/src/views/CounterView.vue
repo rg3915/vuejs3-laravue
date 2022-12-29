@@ -37,10 +37,10 @@ export default {
     const store = useStore()
 
     const increment = () => {
-      store.dispatch('counter/increment', 10)
+      store.dispatch('counter/counter', { type: 'INCREMENT', value: 10 })
     }
     const decrement = () => {
-      store.dispatch('counter/decrement', 10)
+      store.dispatch('counter/counter', { type: 'DECREMENT', value: 10 })
     }
 
     return {
