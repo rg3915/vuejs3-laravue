@@ -26,9 +26,8 @@
 </template>
 
 <script>
-// import { mapState, mapMutations, mapActions } from 'vuex'
-import { useStore, mapState } from 'vuex'
-// import { computed } from 'vue';
+import { useStore } from 'vuex'
+import { computed } from 'vue';
 
 export default {
   name: 'CounterView',
@@ -43,16 +42,13 @@ export default {
       store.dispatch('counter/counter', { type: 'DECREMENT', value: 10 })
     }
 
+    const counter = computed(() => store.state.counter.counter)
+
     return {
       increment,
       decrement,
+      counter,
     }
   },
-
-  computed: {
-    ...mapState({
-      counter: state => state.counter.counter
-    })
-  }
 }
 </script>
