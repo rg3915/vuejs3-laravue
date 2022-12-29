@@ -1,5 +1,8 @@
 export default {
-  counter({ commit }, { type, value }) {
-    commit(type, value)
+  increment({ commit }, payload) {
+    commit('INCREMENT', payload)
+  },
+  decrement({ commit }, payload) {
+    commit('DECREMENT', payload)
   }
 }

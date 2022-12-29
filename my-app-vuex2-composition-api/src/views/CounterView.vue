@@ -26,39 +26,33 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex'
+// import { mapState, mapMutations, mapActions } from 'vuex'
+import { useStore, mapState } from 'vuex'
+// import { computed } from 'vue';
 
 export default {
   name: 'CounterView',
+
+  setup() {
+    const store = useStore()
+
+    const increment = () => {
+      store.dispatch('counter/increment', 10)
+    }
+    const decrement = () => {
+      store.dispatch('counter/decrement', 10)
+    }
+
+    return {
+      increment,
+      decrement,
+    }
+  },
 
   computed: {
     ...mapState({
       counter: state => state.counter.counter
     })
-  },
-
-  methods: {
-    ...mapMutations('counter', {
-      $_add: 'INCREMENT',
-      $_remove: 'DECREMENT',
-    }),
-
-    ...mapActions('counter', {
-      $_counter: 'counter'
-    }),
-
-    increment() {
-      // this.$store.dispatch('counter', 5)
-      // this.$store.dispatch('counter', { type: 'INCREMENT', value: 10 })
-      this.$_counter({ type: 'INCREMENT', value: 10 })
-      // this.$_add(10)
-    },
-
-    decrement() {
-      // this.$store.dispatch('counter', { type: 'DECREMENT', value: 10 })
-      this.$_counter({ type: 'DECREMENT', value: 10 })
-      // this.$_remove(10)
-    },
-  },
+  }
 }
 </script>
